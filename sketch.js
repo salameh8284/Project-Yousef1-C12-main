@@ -13,7 +13,7 @@ function preload(){
 
 function setup(){
   
-  createCanvas(400,400);
+createCanvas(400,400);
 // Moving background
 garden=createSprite(200,200);
 garden.addImage(gardenImg);
@@ -30,22 +30,35 @@ function draw() {
   
   // boy moving on Xaxis with mouse'
   rabbit.x = World.mouseX;
+  //rabbit.y=World.mouseY;
   
   edges= createEdgeSprites();
   rabbit.collide(edges);
   
-   drawSprites();
+  drawSprites();
    
-  
+
+//console.log("Generate a random number using --> "+ round(random(1,3)));
 // var select_sprites = Math(random(1,3));
 
 // var select_sprites = Math.random(random(1,3));
 
 // var select_sprites = Math.round(1,3);
 
-// var select_sprites = Math.round(random(1,3));
+     var select_sprites = Math.round(random(1,3));
+     
+    /*
+     if( frameCount % 120 ==0)
+     {
+     console.log("****************Frame Number -->"+frameCount+"/120 and remaining is ==> "+frameCount%120);
+     }
+    
+     else
+     {
+      console.log(frameCount+" remaining of division on 30 is "+frameCount % 30);
+     }
+    */
 
-  
   // if (frameCount % 50 == 0) {
   //   if (select_sprites == 1) {
   //     createApples();
@@ -64,15 +77,17 @@ function draw() {
   //   }
   // }
 
-  // if (frameCount / 80 == 0) {
-  //   if (select_sprites == 1) {
-  //     createApples();
-  //   } else if (select_sprites == 2) {
-  //     createOrange();
-  //   }else {
-  //     createRed();
-  //   }
-  // }
+   if (frameCount % 80 == 0) {
+     console.log("this is framenumber =="+frameCount);
+     console.log("Selected Sprite is: "+select_sprites);
+     if (select_sprites == 1) {
+       createApples();
+     } else if (select_sprites == 2) {
+       createOrange();
+     }else {
+       createRed();
+     }
+   }
 
   // if (frameCount % 80 = 0) {
   //   if (select_sprites == 1) {
